@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+/* #main{
+    height: 100%;
+    width: 100%;
+    background-color: lightblue;
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+    flex-direction: column;
+}
+.elem{
+    height: 200px;
+    width: 200px;
+    background-color: crimson;
+    border: 3px solid black;
+} */
+/* 
+in display flext there is only one(either x-axis or y-axis) direction but in grid there is 2 direction 
+display grid divide in row and colomn
+
+cell ke ander kuch karna hai to-> align-items: center; justify-items: center;
+pura block ke ander kuch karna hai to-> align-content: center; justify-content: center;
+*/
+#main{
+    height: 100%;
+    width: 100%;
+    background-color: lightblue;
+    display: grid; /*screen is divided in cell*/
+    grid-template-columns: 20% 20% 20% 20% 20%;/*adjust the colume, you can also give in px*/
+    grid-template-rows: 20% 20% 20% 20% 20%;/*adjust the row, you can also give in px*/
+    align-items: center;/*cell ke center me not screen ke center me*/
+    justify-items: center;/*cell ke center me not screen ke center me*/
+    
+    /* align-content: center; 
+    justify-content: center; */
+}
+.elem{
+    height: 100px;
+    width: 100px;
+    background-color: crimson;
+    border: 3px solid black;
+}
+
+#nav{
+    background-color: red;
+    display: grid;
+    grid-template-columns: 50% 10% 10% 10% 10% 10%; 
+    grid-template-rows: 100px;
+    align-items: center;
+    justify-items: center;
+    padding: 0 20px;
+}
+#nav h1{ /*child(h1) pe hamesa self kaam karta hai*/
+    justify-self: start;
+}
