@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+#box{
+    height: 400px;
+    width: 400px;
+    background-color: red;
+    position: relative;
+    animation-name: anime; /*animation name*/
+    animation-duration: 5s; /*animation duration*/
+    animation-delay: 1s; /*animation delay*/
+}
+@keyframes anime {
+    from{ /*inital position property*/
+        left:0;
+        background-color: red;
+        rotate: 0deg;
+    }
+    to{
+        left:60%; /*final position property*/
+        background-color: green;
+        rotate: 360deg;
+    }
+}
