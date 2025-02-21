@@ -1,0 +1,78 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Document</title> 
+    <script type="text/javascript" src="src/scripts/index.js"></script> 
+</head> 
+<body> 
+   <button onclick="DeleteClick()">Delete</button> 
+   <h2></h2> 
+   <p></p> 
+   <input type="text"> 
+   <script>
+    // function DeleteClick() {  //alert
+    //     alert("Delete\nRecord will be deleted"); 
+    //  }
+
+    //  function DeleteClick() {   //confirm
+    //     flag = confirm("Delete\nRecord will be deleted"); 
+    //     if(flag==true){ 
+    //         alert("Record Deleted.."); 
+    //     } else { 
+    //         alert("You canceled.."); 
+    //     } 
+    //  } 
+     
+    // function DeleteClick() {  //write
+    //     flag = confirm("Delete\nRecord will be deleted"); 
+    //     if(flag==true){ 
+    //         document.write("<b><i><font color=red>Record Deleted..</font></b>"); 
+    //     } else { 
+    //         alert("You canceled.."); 
+    //     } 
+    // } 
+
+    // function DeleteClick() {  //innerText
+    //     flag = confirm("Delete\nRecord will be deleted"); 
+    //     if(flag==true){ 
+    //         document.querySelector("h2").innerText = "Delete Confirmed"; 
+    //         document.querySelector("p").innerText = "Record Deleted Successfully.."; 
+    //     } else { 
+    //         alert("You canceled.."); 
+    //     } 
+    // } 
+
+    // function DeleteClick() {   //innerHTML
+    //     flag = confirm("Delete\nRecord will be deleted"); 
+    //     if(flag==true){ 
+    //         document.querySelector("h2").innerHTML = "<font color=red>Delete Confirmed</font>"; 
+    //         document.querySelector("p").innerHTML = "<i><font color=red>Record Deleted Successfully..</font></i>"; 
+    //     } else { 
+    //         alert("You canceled.."); 
+    //     } 
+    // } 
+       
+    // function DeleteClick() { 
+    //     flag = confirm("Delete\nRecord will be deleted"); 
+    //     if(flag==true){ 
+    //         document.querySelector("input[type=text]").value = "Delete Confirmed"; 
+    //     } else { 
+    //         alert("You canceled.."); 
+    //     } 
+    // } 
+       
+    function DeleteClick() { 
+        flag = confirm("Delete\nRecord will be deleted"); 
+        if(flag==true){ 
+            document.querySelector("p").outerHTML = "<h2>Delete Confirmed</h2>"; 
+         } else { 
+            alert("You canceled.."); 
+        }
+    } 
+
+   </script>
+</body> 
+</html> 
