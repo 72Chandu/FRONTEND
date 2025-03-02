@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var username = prompt("Enter Name");
+        // var age = parseInt(prompt("Enter Age"));
+        // var msg1 = "Hello !" + " " + username + " " + "you will be" + " " + (age + 1) + " " + "next year.<br>";
+        // var msg2 = `Hello ! ${username} you will be ${age + 1} next year.<br>`;
+        // var msg3 = `Hello ! ${username} you will be ${age+1} next year.`;
+        // document.write(msg1);
+        // document.write(msg2);
+        // document.write(msg3);
+
+        var title = prompt("Enter Title");
+        var loginName = prompt("Enter Login Name", "UserName, Email, Date");
+        var loginType = prompt("Enter Login Type", "Text|Email|Date");
+        var login = ` 
+       <form> 
+        <h2>${title}</h2> 
+        <dl> 
+             <dt>${loginName}</dt> 
+             <dd><input type=${loginType}></dd> 
+        </dl> 
+        <button>Login</button> 
+       </form> 
+    `;
+        document.write(login);
+    </script>
+</body>
+
+</html>

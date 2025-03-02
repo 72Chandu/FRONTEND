@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div>User Name</div>
+        <input type="text" id="UserName">
+        <div id="UserError"></div>
+        <div>IFSC Code</div>
+        <input type="text" onkeyup="VerifyUser()" size="6" id="ifsc">
+        Email : <input type="email" onblur="VerifyEmail()" id="Email"> <span id="EmailError"></span> 
+    </div>
+    <button onclick="Registerclick()">Register</button>
+
+    <script>
+        function Registerclick(){
+            var username=document.getElementById("UserName").value;
+            var UserError=document.getElementById("UserError");
+            if(username==""){ // you can also check on lenght of name ex: it should > 5
+                // userError.innerHTML = "User Name Required"; 
+                // userError.style.color = "red"; 
+                // userError.style.fontWeight = "bold"; 
+                UserError.innerHTML="user name is required".fontcolor('red').fontsize(2).bold().italics();
+            }else{
+                document.write("Registered..");
+            }
+        }
+         function VerifyUser(){ 
+            var UserName = document.getElementById("UserName").value; 
+            var UserError = document.getElementById("UserError"); 
+            if(UserName.charCodeAt(0)>=65 && UserName.charCodeAt(0)<=90) { 
+                UserError.innerHTML = ""; 
+            } else { 
+                UserError.innerHTML = "Name must start with uppercase letter".fontcolor('red'); 
+            } 
+        } 
+
+        function VerifyEmail(){ 
+            var Email = document.getElementById("Email").value; 
+            var EmailError = document.getElementById("EmailError"); 
+            if(Email.indexOf("@")==-1) { 
+                EmailError.innerHTML = "Invalid Email - Please include @ in Email".fontcolor('red'); 
+            } else { 
+                EmailError.innerHTML = ""; 
+            } 
+        } 
+    </script>
+</body>
+</html>
+<!-- 
+string Formating methods
+
+bold()
+italics()
+fontcolor()
+fontsize()
+sup()
+sub()
+etc....
+
+formating and manuplating
+length-> username.lenght>4
+charAt()->
+CharCodeAt()->UserName.charCodeAt(0)>=65
+indexOf()-> It returns the index number of character present at  specified index.ex: Email.indexOf("@")==-1)
+startsWith() 
+endsWith()
+slice(startIndex, endIndex)        => chars between specified index 
+substr(startIndex, howMany)
+substr(7, 4);                        => from 7 it reads 4 chars 
+        substr(7,0);                        => will not read any chars 
+        substr(7);                            => read upto end 
+substring(startIndex, endIndex)    => end Index can be any direction 
+ substring(7)                            => from 7 to end 
+ substring(7,0)                        => from 7 to 0 [start] 
+
+ -->

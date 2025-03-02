@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="script.js"></script>
+    <title><B></B>MI</title>
+</head>
+<body class="container mx-auto" onload="bodyload()">
+    <h2 class="text-2xl font-bold mb-4">BMI Status</h2>
+    <div class="relative h-12 w-full bg-gray-200">
+        <div class="absolute left-0 h-full bg-gray-800 text-white" style="width:400px">Underweight below 53 kg</div>
+        <div class="absolute left-400 h-full bg-green-600 text-white" style="width:400px">Normal Weight 54 to 70kg</div>
+        <div class="absolute left-800 h-full bg-yellow-500 text-white" style="width:400px">Overweight  70 to  86 kg</div>
+        <div class="absolute left-1200 h-full bg-red-600 text-white" style="width:400px">Obese above 86 kg</div>
+    </div>
+
+    <div>
+        <div id="yourStatus" class="absolute">
+          <span class="bi bi-caret-down-fill"></span>
+          <div>You</div>
+        </div>
+    </div>
+
+    <script>
+        function bodyload(){
+            var yourWeight=parseInt(prompt("Enter weight"));
+            var yourStatus=document.getElementById("yourStatus");
+            if(yourWeight<53){
+                yourStatus.style.marginLeft="200px"
+            }else if(yourWeight>54 && yourWeight<70){
+                yourStatus.style.marginLeft="600px";
+            }
+        }
+    </script>
+</body>
+</html>

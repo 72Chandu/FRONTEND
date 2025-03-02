@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>your skype Account</h1>
+    <input type="email" onblur="VerifyEmail()" placeholder="@outlook" id="Email">
+    <div id="EmailError"></div>
+    <h2>your card number</h2>
+    <dd><input type="text" onkeyup="VerifyCard()" id="Card"><img width="50" align="left" height="20" id="pic"></dd> 
+    <script>
+        function VerifyEmail(){
+            var email=document.getElementById("Email").value;
+            var emailerror=document.getElementById("EmailError")
+            if(email.endsWith("outlook.com")){
+                emailerror.innerHTML=""
+            }else{
+                emailerror.innerHTML = "Please provide a valid Skype Account".fontcolor('red');
+            }
+
+        }
+        function VerifyCard(){ 
+            var card = document.getElementById("Card").value; 
+            var pic = document.getElementById("pic"); 
+            if(card.startsWith("44")){ 
+                pic.src="../public/images/visa.png"; 
+            } else if (card.startsWith("55")){ 
+                pic.src="../public/images/master.png"; 
+            } else { 
+                pic.src = ""; 
+                pic.alt = "N/A"; 
+            } 
+        } 
+    </script>
+</body>
+</html>
