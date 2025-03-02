@@ -1,0 +1,64 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Inox Movies</title> 
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css"> 
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css"> 
+</head> 
+<body class="container-fluid"> 
+    <h2>Inox Movies</h2> 
+    <button class="btn btn-danger" data-bs-target="#movies" data-bs-toggle="modal">Book Ticket</button> 
+    <div class="modal" id="movies"> 
+       <div class="modal-dialog modal-fullscreen"> 
+            <div class="modal-content"> 
+                <div class="modal-header"> 
+                    <h4>Book Ticket</h4> 
+                    <button class="btn-close" data-bs-dismiss="modal"></button> 
+                </div> 
+                <div class="modal-body"> 
+                    <div class="d-flex justify-content-around"> 
+                        <div> 
+                            <select class="form-select"> 
+                                <option>Select Movie</option> 
+                                <option>Top Gun - Maverick</option> 
+                                <option>Pathaan - Hindi</option> 
+                            </select> 
+                        </div> 
+                        <div> 
+                            <select class="form-select"> 
+                                <option>Select Cinema</option> 
+                                <option>Inox GVK </option> 
+                                <option>Inox Ammerpet</option> 
+                            </select> 
+                        </div> 
+                        <div> 
+                            <select class="form-select"> 
+                                <option>Select Date</option> 
+                                <option>Today 08-March </option> 
+                                <option>Tomorrow 09-March</option> 
+                            </select> 
+                        </div> 
+                        <div> 
+                            <select class="form-select"> 
+                                <option>Select Time</option> 
+                                <option> 10:30 AM </option> 
+                                <option> 5:40 PM</option> 
+                            </select> 
+                        </div> 
+                        <div> 
+                            <select class="form-select"> 
+                                <option>Select Seats</option> 
+                                <option>1</option> 
+                                <option>2</option> 
+                            </select> 
+                        </div> 
+                        <div> 
+                           <button class="btn btn-danger">Book</button> 
+                        </div> 
+                    </div> 
+                </div> 
+            </div> 
+       </div>
