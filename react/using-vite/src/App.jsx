@@ -53,8 +53,9 @@ function App(){ // any funtion that return jsx is component
   const [val,setVal]=useState(12);
   const [val1,setVal1]=useState({name:"chandu",isbanned:false});
   const [val2,setVal2]=useState({name:"Raj",age:24});
+  const [val3,setVal3]=useState([1,2,3,4,5,6]);
   return (
-    <div>
+    <div className='p-5'>
       <h1>{val}</h1>
       <button onClick={() => setVal((prev) => prev + 1)} className="bg-blue-500 rounded text-xs text-white">change karo</button>
       
@@ -67,6 +68,13 @@ function App(){ // any funtion that return jsx is component
         await console.log(val2);
         }}
         className="bg-blue-500 rounded text-xs text-white m-5">add
+      </button>
+      
+      {val3.map(item=><h1>{item}</h1>)}
+      <button onClick={()=>setVal3(()=>{
+        return val3.filter((item,idx)=>idx!=val3.length-1)
+      })} 
+      className='px-2 py-1 bg-blue-500'>Click
       </button>
     
     </div>
