@@ -1,0 +1,63 @@
+react -> language X
+react -> framework X
+react -> technology X
+react -> library
+facebook engeneare -> 2013
+2015 -> open source
+
+jab website pr khoob sare change hota hai to khhob sare repaint hota hai wo element badle v nahi aur ye website 
+ko slow down kar deta hai is cheej se bhi bachne ke liye facebook ne react creation kiya 
+
+virtual dom sir wo part repaint re render karta hai jo change hua ho ya jaha par change karna anivaar ho 
+
+to install vite -> npm create vite@latest
+PS D:\FRONTEND\react> npm create vite@latest
+Need to install the following packages: 
+  create-vite@6.3.1
+Ok to proceed? (y) y
+│
+◇  Project name:
+│  vite-project
+│
+◆  Select a framework:
+│  ● Vanilla
+│  ○ Vue
+│  ○ React
+│  ○ Preact
+│  ○ Lit
+│  ○ Svelte
+│  ○ Solid
+│  ○ Qwik
+│  ○ Angular
+│  ○ Others
+└
+◇  Select a framework:
+│  React
+│
+◇  Select a variant:
+│  JavaScript
+│
+◇  Scaffolding project in D:\FRONTEND\react\vite-project...    
+│
+└  Done. Now run:
+
+  cd vite-project
+  npm install
+  npm run dev
+jsx-> it is actually a very similar looking structure like HTML 
+<h1>hey</h1> -> HTML
+<h1>hey</h1> -> jsx  it is look like a html but it is not 
+
+<h1>hey 2+2 </h1> -> o/p in html-> hey 2+2
+<h1>hey {2+2}</h1>  -> in jsx-> hey 4
+
+src-|->component |->about-component,tag-component,product-component,landing-page
+src-|->App.js  all component comes in App.js and App.js comes in main.js.
+main.js is responsible to put in body tag <body>main.js</body>
+
+state ek data hota hai , react es data ka khayaal rakhta hai , jab bhi ye data change hota hai react page ko update karta hai 
+state koi bhi data ho sakta hai , jise ji score=0
+
+maan lete hai aapke game mein score by default 0 se shuru hota hai and future mein wo score badhega by 10 aur 
+aapko page pe show bhi karna hai jab score badhe , to us case mein aapka score variable ek state mein rakhna jaruri hai , kyuki
+react sirf use change krta hai jo state mein hota hai 
