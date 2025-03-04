@@ -52,13 +52,23 @@ function App(){ // any funtion that return jsx is component
   
   const [val,setVal]=useState(12);
   const [val1,setVal1]=useState({name:"chandu",isbanned:false});
+  const [val2,setVal2]=useState({name:"Raj",age:24});
   return (
     <div>
       <h1>{val}</h1>
       <button onClick={() => setVal((prev) => prev + 1)} className="bg-blue-500 rounded text-xs text-white">change karo</button>
+      
       <h1>Nmae: {val1.name}</h1>
       <h2>banned: {val1.isbanned.toString()}</h2>
       <button onClick={()=>setVal1({...val1,isbanned: !val1.isbanned})} className= {`${val1.isbanned ? "bg-blue-500":"bg-red-500"} rounded text-xs text-white`}>change</button>
+      
+      <button onClick={async function(){
+        await setVal2({...val2,gender:"male"});
+        await console.log(val2);
+        }}
+        className="bg-blue-500 rounded text-xs text-white m-5">add
+      </button>
+    
     </div>
   );
 
