@@ -54,8 +54,12 @@ function App(){ // any funtion that return jsx is component
   const [val1,setVal1]=useState({name:"chandu",isbanned:false});
   const [val2,setVal2]=useState({name:"Raj",age:24});
   const [val3,setVal3]=useState([1,2,3,4,5,6]);
+  const [val4,setVal4]=useState([11,12,13,14,15,16]);
+  const [val5,setVal5]=useState([11,12,13,14,15,16]);
+  const [val6,setVal6]=useState([11,12,13,14,15,16]);
+  const [val7,setVal7]=useState([{name:"chandu",age:22},{name:"shivam",age:32},{name:"sunder",age:40}]);
   return (
-    <div className='p-5'>
+    <div className='p-5 '>
       <h1>{val}</h1>
       <button onClick={() => setVal((prev) => prev + 1)} className="bg-blue-500 rounded text-xs text-white">change karo</button>
       
@@ -76,6 +80,44 @@ function App(){ // any funtion that return jsx is component
       })} 
       className='px-2 py-1 bg-blue-500'>Click
       </button>
+
+      {val4.map(item=><h1>{item}</h1>)}
+      <button onClick={()=>setVal4(()=>val4.filter((item,idx)=>idx!=2)
+      )} 
+      className='px-2 py-1 bg-blue-500'>Click
+      </button>
+
+      {val5.map(item=><h1>{item}</h1>)}
+      <button onClick={()=>setVal5(()=>val5.filter((item,idx)=>item%2!==0)
+      )} 
+      className='px-2 py-1 bg-blue-500'>remove ele % 2
+      </button>
+
+      {val6.map(item=><h1>{item}</h1>)}
+      <button onClick={()=>setVal6([...val6,17])} 
+      className='px-2 py-1 bg-blue-500'>add a number
+      </button>
+
+      {val7.map((item) => (
+  <div key={item.name}>
+    <h1>{item.name}</h1>
+    <h2>{item.age}</h2>
+  </div>
+))}
+
+<button
+  onClick={() =>
+    setVal7((prevVal) =>
+      prevVal.map((item) =>
+        item.name === "shival" ? { name: "shivam", age: 26 } : item
+      )
+    )
+  }
+  className="px-2 py-1 bg-blue-500"
+>
+  Add a number
+</button>
+
     
     </div>
   );
