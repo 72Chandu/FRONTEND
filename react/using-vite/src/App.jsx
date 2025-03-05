@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import SecondPage from './components/SecondPage';
 import Card from './components/Card';
 import Card1 from './components/Card1';
+import Card2 from './components/Card2';
 function App(){ // any funtion that return jsx is component
   // return (
   //   <h1>i am in App.js return </h1>  // it will convert into React.createElement('h1',null,'i will return')
@@ -50,6 +51,7 @@ function App(){ // any funtion that return jsx is component
   // const ans=useState(0);// it is array 0th idx is value and 1st idx is function to change value
   // console.log(ans[0]);
   
+  /*
   const [val,setVal]=useState(12);
   const [val1,setVal1]=useState({name:"chandu",isbanned:false});
   const [val2,setVal2]=useState({name:"Raj",age:24});
@@ -113,15 +115,19 @@ function App(){ // any funtion that return jsx is component
       )
     )
   }
-  className="px-2 py-1 bg-blue-500"
->
-  Add a number
+  className="px-2 py-1 bg-blue-500">Add a number
 </button>
 
     
     </div>
   );
-
+*/
+  
+  return (
+    <div>
+      <Card2/>
+    </div>
+  );
 }
 export default App;
 //https://www.youtube.com/watch?v=227LunUUt-E -> problem to solve tailwind css problem
