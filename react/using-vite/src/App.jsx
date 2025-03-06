@@ -6,6 +6,8 @@ import SecondPage from './components/SecondPage';
 import Card from './components/Card';
 import Card1 from './components/Card1';
 import Card2 from './components/Card2';
+import Props from './components/Props'; 
+import Props2 from './components/Props2';
 function App(){ // any funtion that return jsx is component
   // return (
   //   <h1>i am in App.js return </h1>  // it will convert into React.createElement('h1',null,'i will return')
@@ -14,7 +16,6 @@ function App(){ // any funtion that return jsx is component
   // return (  // when we want to return more than one then we bind it in div
   //   <div>
   //     <h1>i am in App.js return </h1>  
-  //     <Navbar/>
   //     <Hero/> 
   //     <SecondPage/>
   //   </div>
@@ -123,11 +124,71 @@ function App(){ // any funtion that return jsx is component
   );
 */
   
-  return (
-    <div>
-      <Card2/>
-    </div>
-  );
+  // return (
+  //   <div>
+  //     <Card2/>
+  //   </div>
+  // );
+
+  
+  // const data=[
+  //   {name:"chandu",profession:"coder",image:"https://images.unsplash.com/photo-1519764622345-23439dd774f7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Ym95c3xlbnwwfHwwfHx8MA%3D%3D",friend:false},
+  //   {name:"shival",profession:"teacher",image:"https://images.unsplash.com/photo-1604073536770-8a33e332f830?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGJveXN8ZW58MHx8MHx8fDA%3D",friend:false},
+  //   {name:"dawal",profession:"developer",image:"https://images.unsplash.com/photo-1602546005687-372f3c6455ed?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGJveXN8ZW58MHx8MHx8fDA%3D",friend:false},
+  //   {name:"snadal",profession:"laundabaaz",image:"https://images.unsplash.com/photo-1614975058789-41316d0e2e9c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJveXN8ZW58MHx8MHx8fDA%3D",friend:false},
+  // ];
+  // const [realData,setRealData]=useState(data);
+  // const handelFndBtn=(caredidx)=>{  // jab hum button pe click karenge to ye function call hoga and caredidx me index aayega
+  //   setRealData((prev)=>{ //prev is a state of data array
+  //     return prev.map((item,idx)=>{
+  //       if(idx===caredidx){
+  //         return {...item,friend:!item.friend}
+  //       }
+  //       return item;
+  //     })
+  //   })
+  // }
+  // return (
+  //   <>
+  //   <div className='w-full h-screen bg-zinc-300 flex gap-4 items-center justify-center'> 
+  //     {realData.map((item,idx)=>( //har card ka idx ja raha hai
+  //       <Props key={idx} idx={idx} image={item.image} name={item.name} profession={item.profession} handelClick={handelFndBtn} friend={item.friend} />
+  //     ))}
+  //   </div>
+  //   </>
+  // );
+  
+
+  const data1 = [
+    { name: "Challenger", artist: "Satal", added: false, image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bXVzaWN8ZW58MHx8MHx8fDA%3D" },
+    { name: "One Day", artist: "Dalal", added: false, image: "https://images.unsplash.com/photo-1619983081563-430f63602796?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bXVzaWN8ZW58MHx8MHx8fDA%3D" },
+    { name: "One Love", artist: "Akashey", added: false, image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fG11c2ljfGVufDB8fDB8fHww" },
+    { name: "Chura Ke", artist: "Honey Singh", added: false, image: "https://media.istockphoto.com/id/894058154/photo/musical-instruments.webp?a=1&b=1&s=612x612&w=0&k=20&c=rK177VUM4bcUTzVfQcWmLoyxSmz_vl0O1pqA-s8Hcgg=" },
+    { name: "Palang", artist: "Khesari", added: false, image: "https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fG11c2ljfGVufDB8fDB8fHww" },
+  ];
+  
+    const [songData, setSongData] = useState(data1);
+    const handelClick=(idx)=>{
+      //alert(idx);
+      setSongData((prev)=>{
+        return prev.map((item,itemidx)=>{
+          if(itemidx===idx){
+            return {...item,added:!item.added}
+          }
+          return item;
+        })
+      })
+    }
+    return (
+      <div className="w-full h-screen bg-zinc-300">
+        <Navbar value={songData}/>
+        <div className="px-20 flex gap-10 mt-10 flex-wrap">
+          {songData.map((obj, idx) => (
+            <Props2 key={idx} value={obj} handelClick={handelClick} idx={idx} />
+          ))}
+        </div>
+      </div>
+    );
 }
 export default App;
 //https://www.youtube.com/watch?v=227LunUUt-E -> problem to solve tailwind css problem
