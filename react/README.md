@@ -63,3 +63,21 @@ aapko page pe show bhi karna hai jab score badhe , to us case mein aapka score v
 react sirf use change krta hai jo state mein hota hai 
 
 useState state ko turant update nahi karta , wo useState state ko update karta apne hisaab se function completion ke baad to fix performance issues 
+
+# installing the react project with tailwind css
+
+PS D:\FRONTEND\react> npm create vite@latest routing --template react
+PS D:\FRONTEND\react\routing> cd routing
+PS D:\FRONTEND\react\routing> npm install tailwindcss @tailwindcss/vite
+
+vite.config.js
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react(),tailwindcss()],
+})
+
+index.css
+@import "tailwindcss";
