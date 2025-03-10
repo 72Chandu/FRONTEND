@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
-import Card from './components/Card'
+import Cards from './components/Cards'
+import Form from './components/Form'
 import {useForm} from "react-hook-form"
 // function App() {
 //   const name=useRef(null);
@@ -39,15 +40,35 @@ import {useForm} from "react-hook-form"
 // }
 
 //Form handling React Hook
+// function App() {
+//   const {register,handleSubmit}=useForm();
+//   console.log(register());
+//   return (
+//     <form action="" onSubmit={handleSubmit((data)=>console.log(data))}>
+//       <input {...register('name')} type="text" placeholder='name' />
+//       <input {...register('age')} type="text" placeholder='age' />
+//       <input type="submit" />
+//     </form>
+//   )
+// }
+
+//app->cards->card->form
+
 function App() {
-  const {register,handleSubmit}=useForm();
-  console.log(register());
+  const [users,setUsers]=useState([]);
+  const handelFormSubmitData=(data)=>{
+    setUsers([...users,data])
+  }
+  const handelRemove=(id)=>{
+    setUsers(()=>users.filter((item,index)=>index!=id))
+  }
   return (
-    <form action="" onSubmit={handleSubmit((data)=>console.log(data))}>
-      <input {...register('name')} type="text" placeholder='name' />
-      <input {...register('age')} type="text" placeholder='age' />
-      <input type="submit" />
-    </form>
+    <div className='w-full h-screen bg-zinc-200 flex items-center justify-center'>
+      <div className='container mx-auto'>
+        <Cards handelRemove={handelRemove} users={users} />
+        <Form handelFormSubmitData={handelFormSubmitData}/>
+      </div>
+    </div>
   )
 }
 export default App
