@@ -4,6 +4,9 @@ import Home from '../components/Home'
 import User from '../components/User'
 import About from '../components/About'
 import UsersDetails from '../components/UsersDetails'
+import Show from '../components/Show'
+import Services from '../components/Services'
+import Show2 from '../components/Show2'
 function Routing() {
   return (
     <>
@@ -17,6 +20,10 @@ function Routing() {
       <Route path="/User" element={<User/>}>
            <Route path="/User/:name" element={<UsersDetails/>}/>
       </Route>
+      <Route path='/show' element={<Show/>}></Route>
+      <Route path='/services' element={<Services/>}></Route>
+      <Route path='/show2' element={<Show2/>}></Route>
+
      </Routes>
     </>
   )

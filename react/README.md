@@ -81,3 +81,81 @@ export default defineConfig({
 
 index.css
 @import "tailwindcss";
+
+# integrate API in react
+database <--> backend -->react-frontend
+
+data is coming in react-frontend through AJX api concept from backend
+
+AJX api concept is implement through fetch/axios
+
+AJX api concept helps to comucate with backend and frontend 
+
+component update -> component deletion + component creation
+
+Syntax of useEffect
+useEffect(() => {
+  // Code to run (side effects)
+}, [dependencies]);
+
+The first argument is a function where we define what we want to run.
+The second argument is an array of dependencies, which controls when the effect runs.
+
+1. Running useEffect on Every Render (No Dependency Array)
+useEffect(() => {
+  console.log("Component re-rendered!");
+});
+The effect runs every time the component renders.
+If the state or props change, the effect runs again.
+
+2. Running useEffect Only Once (Empty Dependency Array [])
+useEffect(() => {
+  console.log("Component mounted!");
+}, []);
+
+The effect runs only once when the component mounts.
+It won’t run again on re-renders.
+Used for tasks like fetching data when the component loads.
+Example: Fetching API data on mount
+useEffect(() => {
+  fetch("https://fakestoreapi.com/products")
+    .then(res => res.json())
+    .then(data => console.log(data));
+}, []);
+
+3. Running useEffect When State/Props Change (With Dependencies)
+const [count, setCount] = useState(0);
+useEffect(() => {
+  console.log(`Count changed: ${count}`);
+}, [count]);
+
+The effect runs when count changes.If count stays the same, it won’t run.
+Useful for things like syncing with local storage or API calls that depend on a specific value.
+
+4. Cleaning Up Side Effects (Return Function)
+Sometimes, effects like event listeners or timers need cleanup to avoid memory leaks.
+
+Example: Cleanup for an Interval
+useEffect(() => {
+  const interval = setInterval(() => {
+    console.log("Interval running...");
+  }, 1000);
+  return () => {
+    clearInterval(interval);
+    console.log("Interval cleaned up!");
+  };
+}, []);
+The return function cleans up the effect when the component unmounts.
+Example: Cleanup for an Event Listener
+useEffect(() => {
+  const handleResize = () => {
+    console.log("Window resized!");
+  };
+  
+  window.addEventListener("resize", handleResize);
+
+  return () => {
+    window.removeEventListener("resize", handleResize);
+  };
+}, []);
+This prevents multiple event listeners from piling up.

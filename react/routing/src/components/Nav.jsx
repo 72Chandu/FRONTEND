@@ -22,6 +22,9 @@ function Nav() {
       {/* when you click on User it starting finding '/User' and get in Routing.jsx file and than render to that particular page which it indicate */}
       <NavLink className={changeNavColorM2} to="/User">User</NavLink> 
       <NavLink style={changeNavColor} to="/About">About</NavLink> 
+      <NavLink to="/Show">Show</NavLink>
+      <NavLink to="/services">Services</NavLink>
+      <NavLink to="/Show2">Show2</NavLink>
      </nav>
     </>
   )
