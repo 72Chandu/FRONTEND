@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
 function UsersDetails() {
-    const {name}=useParams(); //  /User/:name -> geting thisrouting name 
+    const {name}=useParams(); //  /User/:name -> geting this routing name 
     const navigate= useNavigate(); // helps in navigating through button
     //console.log(name);
     const GoBackHandel=()=>{

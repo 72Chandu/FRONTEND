@@ -13,6 +13,7 @@ function Routing() {
       <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/About" element={<About/>}/>
+      <Route path="/About/:id" element={<About/>}/>
 
       {/* <Route path="/User" element={<User/>}/>
       <Route path="/User/:name" element={<UsersDetails/>}/> */}

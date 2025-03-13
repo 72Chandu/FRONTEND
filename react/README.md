@@ -82,6 +82,33 @@ export default defineConfig({
 index.css
 @import "tailwindcss";
 
+# What is a Prop in React?
+In React, props (short for properties) are a way to pass data from a parent component to a child component. Props are read-only, meaning they cannot be modified by the child component.They help components become reusable by dynamically receiving data.
+
+1. Parent Component Passing Props
+import React from "react";
+import Greeting from "./Greeting";
+const App = () => {
+  return (
+    <div>
+      <Greeting name="Alice" age={25} />
+      <Greeting name="Bob" age={30} />
+    </div>
+  );
+};
+export default App;
+
+2. Child Component Receiving Props
+import React from "react";
+const Greeting = ({ name, age }) => {
+  return (
+    <h2>
+      Hello, my name is {name} and I am {age} years old.
+    </h2>
+  );
+};
+export default Greeting;
+
 # integrate API in react
 database <--> backend -->react-frontend
 
@@ -159,3 +186,67 @@ useEffect(() => {
   };
 }, []);
 This prevents multiple event listeners from piling up.
+
+# context API
+The Context API in React is a built-in feature that allows you to manage and share state globally across components without having to pass props manually through each level of the component tree. It is useful when you have data that needs to be accessed by multiple components at different nesting levels, such as theme settings, authentication status, or user preferences.
+
+How Context API Works
+The Context API consists of three main parts:
+
+React.createContext(): This function creates a Context object.It returns a Provider and a Consumer.Provider
+
+The Provider component is used to wrap the parts of the application that need access to the context.
+It accepts a value prop, which represents the data that should be shared.Consumer (or useContext Hook)
+ 
+The Consumer component is used to consume the context values in class components.
+In functional components, we use the useContext hook for a simpler way to access the context.
+Example: Using Context API
+1. Creating a Context
+import React, { createContext, useState } from "react";
+const ThemeContext = createContext();// Create Context
+const ThemeProvider = ({ children }) => {
+  const [theme, setTheme] = useState("light");
+  return (
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
+export { ThemeContext, ThemeProvider };
+
+2. Using the Context in a Component
+import React, { useContext } from "react";
+import { ThemeContext } from "./ThemeContext";
+const ThemeToggle = () => {
+  const { theme, setTheme } = useContext(ThemeContext);
+  return (
+    <div>
+      <p>Current Theme: {theme}</p>
+      <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
+        Toggle Theme
+      </button>
+    </div>
+  );
+};
+export default ThemeToggle;
+
+3. Wrapping the App with the Provider
+import React from "react";
+import { ThemeProvider } from "./ThemeContext";
+import ThemeToggle from "./ThemeToggle";
+const App = () => {
+  return (
+    <ThemeProvider>
+      <ThemeToggle />
+    </ThemeProvider>
+  );
+};
+export default App;
+
+Advantages of Context API
+✔ Reduces prop drilling (passing props down multiple levels).
+✔ Makes state management easier for global data.
+✔ Better performance compared to unnecessary re-renders with prop drilling.
+
+However, for large-scale applications with complex state logic, Context API might not be as efficient as Redux or other state management solutions.
+
