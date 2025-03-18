@@ -66,8 +66,8 @@ useState state ko turant update nahi karta , wo useState state ko update karta a
 
 # installing the react project with tailwind css
 
-PS D:\FRONTEND\react> npm create vite@latest routing --template react
-PS D:\FRONTEND\react\routing> cd routing
+PS D:\FRONTEND\react> npm create vite@latest <project-name> --template react
+PS D:\FRONTEND\react\routing> cd <project-name> 
 PS D:\FRONTEND\react\routing> npm install tailwindcss @tailwindcss/vite
 
 vite.config.js
