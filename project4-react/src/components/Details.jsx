@@ -46,7 +46,7 @@ const Details = () => {
 
         {/* Buttons */}
         <div className="flex">
-          <button className="mr-5 py-2 px-5 border rounded border-blue-300 text-blue-500 hover:bg-blue-500 hover:text-white transition">Edit</button>
+          <button onClick={() => navigate(`/edit/${product.id}`)} className="mr-5 py-2 px-5 border rounded border-blue-300 text-blue-500 hover:bg-blue-500 hover:text-white transition">Edit</button>
           <button onClick={()=>productDeleteHandler(product.id)} className="py-2 px-5 border rounded border-red-300 text-red-500 hover:bg-red-500 hover:text-white transition">Delete</button>
         </div>
       </div>
