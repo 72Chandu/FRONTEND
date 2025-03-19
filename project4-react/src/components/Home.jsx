@@ -25,10 +25,16 @@ const Home = () => {
     };
 
     useEffect(() => {
+        // Get products from local storage
+        const storedProducts = JSON.parse(localStorage.getItem("products")) || [];
+
         if (!category || category === "undefined") {
-            setFilteredProducts(Array.isArray(products) ? products : []);
+            // If no category is selected, show all products
+            setFilteredProducts(storedProducts);
         } else {
-            getProductsByCategory();
+            // Filter products based on selected category
+            const categoryFiltered = storedProducts.filter(p => p.category === category);
+            setFilteredProducts(categoryFiltered);
         }
     }, [category, products]);
     return products ? (
