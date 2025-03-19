@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { ProductContext } from '../utils/Context'
 import {nanoid} from 'nanoid'
 import { useNavigate } from 'react-router-dom'
+import {toast } from 'react-toastify';
 const Create = () => {
   const navigate=useNavigate()
   const[products,setproducts]= useContext(ProductContext)
@@ -22,7 +23,7 @@ const Create = () => {
 
     // Save the UPDATED array to localStorage
     localStorage.setItem("products", JSON.stringify([...products, product]));
-    navigate("/")
+    toast.success("Product Added Successfully");    navigate("/")
   }
   return (
     <form onSubmit={Addproducthandeler} className='flex flex-col items-center p-[5%] w-screen h-screen'>
