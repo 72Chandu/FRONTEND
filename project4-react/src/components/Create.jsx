@@ -1,6 +1,10 @@
-import React, { useState } from 'react'
-
+import React, { useContext, useState } from 'react'
+import { ProductContext } from '../utils/Context'
+import {nanoid} from 'nanoid'
+import { useNavigate } from 'react-router-dom'
 const Create = () => {
+  const navigate=useNavigate()
+  const[products,setproducts]= useContext(ProductContext)
   const [title, settitle] = useState("")
   const [image, setimage] = useState("")
   const [category, setcategory] = useState("")
@@ -8,8 +12,17 @@ const Create = () => {
   const [description, setdescription] = useState("")
   const Addproducthandeler=(e)=>{
     e.preventDefault()
-    const product={title,image,category,price,description}
-    console.log(product)
+    if(title.trim().length<5 || price.trim().length<1 || image.trim().length<5 || category.trim().length<5 || description.trim().length<5){
+      alert("Each and every input must have at least 5 letter")
+      return;
+    }
+    const product={id:nanoid() ,title,image,category,price,description}
+    // console.log(product)
+    setproducts([...products, product]); 
+
+    // Save the UPDATED array to localStorage
+    localStorage.setItem("products", JSON.stringify([...products, product]));
+    navigate("/")
   }
   return (
     <form onSubmit={Addproducthandeler} className='flex flex-col items-center p-[5%] w-screen h-screen'>
@@ -24,9 +37,7 @@ const Create = () => {
       <div className='w-1/2'>
       <button className=' py-2 px-5 border rounded border-blue-200 text-blue-300'>Add New Product</button>
       </div>
-
     </form>
   )
 }
-
 export default Create

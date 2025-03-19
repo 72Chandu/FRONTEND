@@ -17,15 +17,16 @@ const Home = () => {
     const getProductsByCategory = async () => {
         try {
             const { data } = await axios.get(`/products/category/${category}`);
-            setFilteredProducts(data);
+            setFilteredProducts(Array.isArray(data) ? data : []); // ✅ Ensure it's an array
         } catch (error) {
             console.error("Error fetching category products:", error);
+            setFilteredProducts([]); // ✅ Prevents crashing on API failure
         }
     };
 
     useEffect(() => {
         if (!category || category === "undefined") {
-            setFilteredProducts(products);
+            setFilteredProducts(Array.isArray(products) ? products : []);
         } else {
             getProductsByCategory();
         }

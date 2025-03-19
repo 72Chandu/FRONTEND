@@ -1,20 +1,27 @@
-import React, {useEffect, useState } from 'react';
+import React, {useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from '../utils/axios';
+import { ProductContext } from '../utils/Context';
 const Details = () => {
-  const { id } = useParams(); // Get product ID from URL
   const [product,setproduct]=useState(null)
-  const getsingleproduct=async()=>{
-    try{
-      const {data}=await axios.get(`/products/${id}`);
-      // console.log(data);
-      setproduct(data)
-    }catch(e){
-      console.log(e);
-    }
-  }
+  const[products,setproducts]= useContext(ProductContext)
+  const { id } = useParams(); // Get product ID from URL
+
+  // const getsingleproduct=async()=>{
+  //   try{
+  //     const {data}=await axios.get(`/products/${id}`);
+  //     // console.log(data);
+  //     setproduct(data)
+  //   }catch(e){
+  //     console.log(e);
+  //   }
+  // }
+
   useEffect(()=>{
-    getsingleproduct();
+    //getsingleproduct();
+    if(!product){
+      setproduct(products.filter((p)=>p.id==id)[0]);
+    }
   },[])
   if (!product) return <h1 className="text-center text-2xl mt-10">Product not found!</h1>;
   return (
