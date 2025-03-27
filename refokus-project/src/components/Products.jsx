@@ -10,7 +10,7 @@ const Products = () => {
     ];
   return (
     <div className='mt-32'>
-    {products.map((ele,idx)=><Product val={ele}/>)}
+    {products.map((ele,idx)=><Product key={idx} val={ele}/>)}
     </div>
   );
 }
