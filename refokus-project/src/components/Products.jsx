@@ -9,7 +9,7 @@ const Products = () => {
         {title:"Yahoo!",description:"Lorem ipsum dolor Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis magnam quas blanditiis! sit amet consectetur adipisicing elit. Eligendi cumque itaque doloremque, totam beatae corrupti!",live:true,case:false},
     ];
   return (
-    <div>
+    <div className='mt-32'>
     {products.map((ele,idx)=><Product val={ele}/>)}
     </div>
   );

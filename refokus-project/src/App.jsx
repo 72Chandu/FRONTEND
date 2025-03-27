@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Work from './components/Work'
 import Stripes from './components/Stripes'
 import Products from './components/Products'
+import Marquees from './components/Marquees'
 
 const App = () => {
   return (
@@ -11,8 +12,8 @@ const App = () => {
       <Work/>
       <Stripes/>
       <Products/>
+      <Marquees/>
     </div>
   )
 }
-
 export default App
