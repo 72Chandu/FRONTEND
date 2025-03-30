@@ -7,7 +7,7 @@ const Marquees = () => {
   ];
   return (
     <div className='py-20 mt-32'>
-      {images.map((group, index) => (<Marquee key={index} imageurl={group} />))}
+      {images.map((group, index) => (<Marquee key={index} imageurl={group} direction={index===0 ? "left":"right"} />))}
     </div>
   );
 };
