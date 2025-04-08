@@ -540,3 +540,17 @@ body{
 ._canvas_container{
     z-index: 999999 !important;
 }
+
+#flag{
+     height: 25vw;
+     position: absolute;
+     top:0;
+     left: 0;
+     opacity: 0;
+     transform: translate(-50%,-50%);
+}
+#hero3{
+    /* background-color: red;; */
+    z-index: 999;
+    position: relative;
+}
